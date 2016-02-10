@@ -2,6 +2,7 @@ package com.example.Lab04;
 
 import android.app.Activity;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.view.SurfaceHolder;
@@ -19,17 +20,42 @@ public class MyActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
+
         final Button greenButton = (Button)(findViewById(R.id.btnGreen)); // read only green Button
         final Button blueButton = (Button)(findViewById(R.id.btnBlue)); // read only blue button
         final Button whiteButton = (Button)(findViewById(R.id.btnWhite)); // read only white Button..
-        TextView textColor = (TextView)(findViewById(R.id.txtColor)); // Text to contain color of the bitmap.
+        final TextView textColor = (TextView)(findViewById(R.id.txtColor)); // Text to contain color of the bitmap.
+        final SurfaceView sfv = (SurfaceView)(findViewById(R.id.surView));
+
 
         // Setting the ClickListener's for each of the buttons
         greenButton.setOnClickListener(new View.OnClickListener()
         {
             public void onClick(View v)
             {
+                sfv.setBackgroundColor(Color.GREEN);
+                textColor.setText("GREEN");
+                textColor.setTextColor(Color.GREEN);
+            }
+        });
 
+        blueButton.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                sfv.setBackgroundColor(Color.BLUE);
+                textColor.setText("BLUE");
+                textColor.setTextColor(Color.BLUE);
+            }
+        });
+
+        whiteButton.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                sfv.setBackgroundColor(Color.WHITE);
+                textColor.setText("WHITE");
+                textColor.setTextColor(Color.WHITE);
             }
         });
     }
